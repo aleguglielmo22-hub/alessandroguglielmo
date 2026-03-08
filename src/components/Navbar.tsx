@@ -159,7 +159,7 @@ const Navbar = () => {
                 <Link
                   key={item.hash}
                   to={`/analisi${item.hash}`}
-                  className="block pl-4 py-2 text-base text-white/80 hover:text-white transition-colors"
+                  className="block pl-4 py-2 text-base text-[#141414]/70 hover:text-primary transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
