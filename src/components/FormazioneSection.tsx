@@ -1,3 +1,4 @@
+// Formazione section with institution logos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const timeline = [
