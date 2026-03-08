@@ -86,7 +86,7 @@ const Navbar = () => {
             </button>
             {dropdownOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                <div className="bg-card rounded-lg shadow-lg border border-border p-2 min-w-[200px] animate-fade-up">
+                <div className="bg-white rounded-lg shadow-lg border border-[#141414]/10 p-2 min-w-[200px] animate-fade-up">
                   {analisiDropdown.map((item) => (
                     <Link
                       key={item.hash}
