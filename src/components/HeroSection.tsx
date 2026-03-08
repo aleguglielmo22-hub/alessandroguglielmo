@@ -34,7 +34,7 @@ const HeroSection = () => {
                 Scopri i miei lavori
               </Link>
               <a
-                href="/Alessandro_Guglielmo_CV.pdf"
+                href={asset("/Alessandro_Guglielmo_CV.pdf")}
                 download
                 className="inline-flex items-center gap-2 border-2 border-foreground/20 text-foreground px-7 py-3.5 rounded-full text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
               >
