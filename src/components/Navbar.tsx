@@ -137,7 +137,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-primary border-t border-white/20">
+        <div className="lg:hidden bg-[#141414] border-t border-white/10">
           <div className="container py-6 flex flex-col gap-4">
             {navLinks.slice(0, 3).map((l) => (
               <a
