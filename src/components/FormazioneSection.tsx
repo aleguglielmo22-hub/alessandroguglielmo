@@ -57,14 +57,14 @@ const FormazioneSection = () => {
           </div>
 
           {/* Software */}
-          <div className="mt-16 pt-10 border-t border-border">
-            <h3 className="text-xl font-display font-bold mb-2">Software &amp; Strumenti</h3>
-            <p className="text-sm text-muted-foreground mb-6">
+          <div className="mt-16 pt-10 border-t border-[#d4d4d4]">
+            <h3 className="text-xl font-display font-bold mb-2 text-[#141414]">Software &amp; Strumenti</h3>
+            <p className="text-sm text-[#7a7a7a] mb-6">
               Gli applicativi con cui lavoro quotidianamente per analisi, montaggio e dati.
             </p>
             <div className="flex flex-wrap gap-3">
               {software.map((s) => (
-                <span key={s} className="chip-hover">{s}</span>
+                <span key={s} className="border border-[#d4d4d4] rounded-full px-4 py-2 text-sm font-medium text-[#7a7a7a] transition-all duration-200 cursor-default hover:border-primary hover:text-primary">{s}</span>
               ))}
             </div>
           </div>
