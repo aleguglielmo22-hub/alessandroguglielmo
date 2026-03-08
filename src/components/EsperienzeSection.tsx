@@ -17,14 +17,14 @@ const esperienze = [
   },
   {
     club: "Scout Underrated",
-    logo: "/scout-underrated.webp",
+    logo: "/scout-underrated.jpg",
     ruolo: "Match Analyst & Scout",
     periodo: "2024 – In corso",
     desc: "Analisi individuali di calciatori attraverso video report e report scritti. Attività di scouting e ricerca di talenti emergenti.",
   },
   {
     club: "NapoliNetwork.com",
-    logo: "/napolinetwork.jpeg",
+    logo: "/napolinetwork.jpg",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2022 – 2025",
     desc: "Redazione di articoli di approfondimento tattico: analisi di partite, sistemi di gioco, profili di calciatori e tematiche tattiche di carattere generale.",
