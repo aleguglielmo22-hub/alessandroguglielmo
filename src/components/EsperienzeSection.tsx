@@ -1,3 +1,4 @@
+// Esperienze section with club logos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const esperienze = [
