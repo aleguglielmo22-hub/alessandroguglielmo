@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const HeroSection = () => {
   const { ref, revealed } = useScrollReveal(0.1);
@@ -33,7 +34,7 @@ const HeroSection = () => {
                 Scopri i miei lavori
               </Link>
               <a
-                href="/Alessandro_Guglielmo_CV.pdf"
+                href={asset("/Alessandro_Guglielmo_CV.pdf")}
                 download
                 className="inline-flex items-center gap-2 border-2 border-foreground/20 text-foreground px-7 py-3.5 rounded-full text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
               >
@@ -47,7 +48,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/20 rounded-[20px]" />
               <img
-                src="/foto-profilo.jpeg"
+                src={asset("/foto-profilo.jpeg")}
                 alt="Alessandro Guglielmo — Football Analyst"
                 className="relative w-[380px] h-[460px] object-cover rounded-[20px]"
               />

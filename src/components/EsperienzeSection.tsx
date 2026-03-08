@@ -1,5 +1,6 @@
 // Esperienze section with club logos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const esperienze = [
   {
@@ -69,7 +70,7 @@ const EsperienzeSection = () => {
               >
                 <div className="flex items-start gap-4">
                   <img
-                    src={exp.logo}
+                    src={asset(exp.logo)}
                     alt={exp.club}
                     className="w-12 h-12 rounded-xl object-cover bg-background shrink-0"
                   />
