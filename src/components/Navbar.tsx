@@ -175,7 +175,7 @@ const Navbar = () => {
                   handleNavClick(l.href);
                   if (location.pathname !== "/") window.location.href = l.href;
                 }}
-                className="text-base font-medium py-2 text-foreground hover:text-primary transition-colors"
+                className="text-base font-medium py-2 text-white/90 hover:text-white transition-colors"
               >
                 {l.label}
               </a>
