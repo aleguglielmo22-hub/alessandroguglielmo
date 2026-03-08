@@ -20,7 +20,7 @@ const FormazioneSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="formazione" className="py-24 md:py-32 bg-background">
+    <section id="formazione" className="py-24 md:py-32 bg-[#f9f7f4] text-[#141414]">
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Formazione</div>
