@@ -153,8 +153,8 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
-            <div className="border-t border-border pt-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">— Analisi —</span>
+            <div className="border-t border-white/20 pt-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">— Analisi —</span>
               {analisiDropdown.map((item) => (
                 <Link
                   key={item.hash}
