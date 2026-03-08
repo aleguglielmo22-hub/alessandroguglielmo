@@ -50,14 +50,14 @@ const EsperienzeSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="esperienze" className="py-24 md:py-32 bg-dark-bg">
+    <section id="esperienze" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Esperienze</div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-dark-text mb-3">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
             Dove Ho Lavorato
           </h2>
-          <p className="text-dark-text-muted mb-12">
+          <p className="text-muted-foreground mb-12">
             Le esperienze nel mondo del calcio che mi hanno formato sul campo.
           </p>
 
@@ -65,7 +65,7 @@ const EsperienzeSection = () => {
             {esperienze.map((exp, i) => (
               <div
                 key={i}
-                className="bg-dark-card rounded-xl p-6 border border-dark-card hover:border-primary/30 card-hover"
+                className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 card-hover"
               >
                 <div className="flex items-start gap-4">
                   <img
