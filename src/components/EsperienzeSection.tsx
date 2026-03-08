@@ -10,7 +10,7 @@ const esperienze = [
   },
   {
     club: "FC Trapani 1905",
-    logo: "/fc-trapani-1905.jpeg",
+    logo: "/fc-trapani-1905.png",
     ruolo: "First Team Analyst & Scout",
     periodo: "2024",
     desc: "Analisi video e report tattici per lo staff tecnico della prima squadra in Serie C: studio post-partita della propria squadra e analisi pre-partita degli avversari.",
