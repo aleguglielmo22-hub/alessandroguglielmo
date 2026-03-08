@@ -17,7 +17,7 @@ const esperienze = [
   },
   {
     club: "Scout Underrated",
-    logo: "/scout-underrated.jpeg",
+    logo: "/scout-underrated.webp",
     ruolo: "Match Analyst & Scout",
     periodo: "2024 – In corso",
     desc: "Analisi individuali di calciatori attraverso video report e report scritti. Attività di scouting e ricerca di talenti emergenti.",
