@@ -7,7 +7,7 @@ const timeline = [
   { year: "2024", title: "Match Analyst Live Tag Pro", place: "Match Analysis Academy", desc: "Formazione sull'utilizzo del software LiveTag Pro per il tagging e l'analisi video in tempo reale.", logo: "/match-analysis-academy.jpeg" },
   { year: "2022", title: "Tactical Master", place: "Panini Digital Sport Platform", desc: "Approfondimento avanzato sulla tattica calcistica e l'analisi dei sistemi di gioco.", logo: "/panini-dsp.jpeg" },
   { year: "2021", title: "Professional Match Analyst", place: "LF Scouting", desc: "Corso professionale sulle metodologie di match analysis e scouting.", logo: "/lf-scouting.webp" },
-  { year: "2021", title: "Match Analyst PRO", place: "Emiscouting", desc: "Formazione professionale sull'analisi tattica e l'utilizzo di software di video analysis.", logo: "/emiscouting.jpeg" },
+  { year: "2021", title: "Match Analyst PRO", place: "Emiscouting", desc: "Formazione professionale sull'analisi tattica e l'utilizzo di software di video analysis.", logo: "/emiscouting.png" },
 ];
 
 const software = [

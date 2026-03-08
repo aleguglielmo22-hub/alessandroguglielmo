@@ -24,7 +24,7 @@ const esperienze = [
   },
   {
     club: "NapoliNetwork.com",
-    logo: "/napolinetwork.jpeg",
+    logo: "/napolinetwork.jpg",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2022 – 2025",
     desc: "Redazione di articoli di approfondimento tattico: analisi di partite, sistemi di gioco, profili di calciatori e tematiche tattiche di carattere generale.",
