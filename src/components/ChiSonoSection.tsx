@@ -10,11 +10,13 @@ const ChiSonoSection = () => {
           ref={ref}
           className={`grid lg:grid-cols-2 gap-16 items-start scroll-reveal ${revealed ? "revealed" : ""}`}
         >
-          {/* Image placeholder */}
+          {/* Image */}
           <div className="hidden lg:block">
-            <div className="w-full aspect-[4/5] bg-muted rounded-2xl flex items-center justify-center text-muted-foreground text-sm">
-              Foto
-            </div>
+            <img
+              src="/foto-profilo.jpeg"
+              alt="Alessandro Guglielmo"
+              className="w-full aspect-[4/5] object-cover rounded-2xl"
+            />
           </div>
 
           {/* Text */}
@@ -38,9 +40,9 @@ const ChiSonoSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-border">
               {[
-                { value: "0", label: "Analisi pubblicate" },
-                { value: "4", label: "Club collaborazioni" },
-                { value: "0", label: "Articoli scritti" },
+                { value: "100+", label: "Analisi fatte" },
+                { value: "10+", label: "Collaborazioni" },
+                { value: "50+", label: "Articoli scritti" },
               ].map((s) => (
                 <div key={s.label}>
                   <p className="text-3xl font-display font-bold text-foreground">{s.value}</p>
