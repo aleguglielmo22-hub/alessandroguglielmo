@@ -181,8 +181,9 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors mt-2"
+              href="/Alessandro_Guglielmo_CV.pdf"
+              download
+              className="inline-flex items-center justify-center gap-2 bg-white text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors mt-2"
             >
               <Download size={16} /> Scarica CV
             </a>

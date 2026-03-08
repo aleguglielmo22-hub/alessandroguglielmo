@@ -20,7 +20,7 @@ const HeroSection = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
               Benvenuto nel mio portfolio
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-[1.05]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05]" style={{ fontFamily: "'Playfair Display', serif" }}>
               Alessandro<br />
               <span className="text-primary">Guglielmo</span>
             </h1>
