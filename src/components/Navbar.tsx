@@ -48,14 +48,14 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#141414] shadow-md"
-          : "bg-[#141414]/95"
+          ? "bg-white shadow-md"
+          : "bg-white/95 backdrop-blur-xl"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-0 text-2xl font-serif font-black select-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-          <span className="text-white">A</span>
-          <span className="text-foreground">G</span>
+        <Link to="/" className="flex items-center gap-0 text-2xl font-black select-none" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="text-primary">A</span>
+          <span className="text-[#141414]">G</span>
         </Link>
 
         {/* Desktop nav */}
@@ -69,7 +69,7 @@ const Navbar = () => {
                 handleNavClick(l.href);
                 if (location.pathname !== "/") window.location.href = l.href;
               }}
-              className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+              className="text-sm font-medium text-[#141414]/80 hover:text-primary transition-colors"
             >
               {l.label}
             </a>
@@ -81,17 +81,17 @@ const Navbar = () => {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="text-sm font-medium text-white/90 hover:text-white transition-colors flex items-center gap-1">
+            <button className="text-sm font-medium text-[#141414]/80 hover:text-primary transition-colors flex items-center gap-1">
               Analisi <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
             </button>
             {dropdownOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                <div className="bg-card rounded-lg shadow-lg border border-border p-2 min-w-[200px] animate-fade-up">
+                <div className="bg-white rounded-lg shadow-lg border border-[#141414]/10 p-2 min-w-[200px] animate-fade-up">
                   {analisiDropdown.map((item) => (
                     <Link
                       key={item.hash}
                       to={`/analisi${item.hash}`}
-                      className="block px-4 py-2.5 text-sm rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
+                      className="block px-4 py-2.5 text-sm text-[#141414] rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
                 handleNavClick(l.href);
                 if (location.pathname !== "/") window.location.href = l.href;
               }}
-              className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+              className="text-sm font-medium text-[#141414]/80 hover:text-primary transition-colors"
             >
               {l.label}
             </a>
@@ -119,7 +119,7 @@ const Navbar = () => {
           <a
             href="/Alessandro_Guglielmo_CV.pdf"
             download
-            className="inline-flex items-center gap-2 bg-white text-primary px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors"
           >
             <Download size={16} /> Scarica CV
           </a>
@@ -127,7 +127,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-white"
+          className="lg:hidden p-2 text-[#141414]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
@@ -148,18 +148,18 @@ const Navbar = () => {
                   handleNavClick(l.href);
                   if (location.pathname !== "/") window.location.href = l.href;
                 }}
-                className="text-base font-medium py-2 text-white/90 hover:text-white transition-colors"
+                className="text-base font-medium py-2 text-[#141414] hover:text-primary transition-colors"
               >
                 {l.label}
               </a>
             ))}
-            <div className="border-t border-white/20 pt-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">— Analisi —</span>
+            <div className="border-t border-[#141414]/10 pt-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">— Analisi —</span>
               {analisiDropdown.map((item) => (
                 <Link
                   key={item.hash}
                   to={`/analisi${item.hash}`}
-                  className="block pl-4 py-2 text-base text-white/80 hover:text-white transition-colors"
+                  className="block pl-4 py-2 text-base text-[#141414]/70 hover:text-primary transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -175,7 +175,7 @@ const Navbar = () => {
                   handleNavClick(l.href);
                   if (location.pathname !== "/") window.location.href = l.href;
                 }}
-                className="text-base font-medium py-2 text-white/90 hover:text-white transition-colors"
+                className="text-base font-medium py-2 text-[#141414] hover:text-primary transition-colors"
               >
                 {l.label}
               </a>
@@ -183,7 +183,7 @@ const Navbar = () => {
             <a
               href="/Alessandro_Guglielmo_CV.pdf"
               download
-              className="inline-flex items-center justify-center gap-2 bg-white text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors mt-2"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors mt-2"
             >
               <Download size={16} /> Scarica CV
             </a>

@@ -50,14 +50,14 @@ const EsperienzeSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="esperienze" className="py-24 md:py-32 bg-dark-bg">
+    <section id="esperienze" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Esperienze</div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-dark-text mb-3">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
             Dove Ho Lavorato
           </h2>
-          <p className="text-dark-text-muted mb-12">
+          <p className="text-muted-foreground mb-12">
             Le esperienze nel mondo del calcio che mi hanno formato sul campo.
           </p>
 
@@ -65,21 +65,21 @@ const EsperienzeSection = () => {
             {esperienze.map((exp, i) => (
               <div
                 key={i}
-                className="bg-dark-card rounded-xl p-6 border border-dark-card hover:border-primary/30 card-hover"
+                className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 card-hover"
               >
                 <div className="flex items-start gap-4">
                   <img
                     src={exp.logo}
                     alt={exp.club}
-                    className="w-12 h-12 rounded-xl object-cover bg-dark-bg shrink-0"
+                    className="w-12 h-12 rounded-xl object-cover bg-background shrink-0"
                   />
                   <div className="space-y-1 flex-1">
-                    <h3 className="font-display font-bold text-dark-text">{exp.club}</h3>
+                    <h3 className="font-display font-bold text-foreground">{exp.club}</h3>
                     <p className="text-sm font-medium text-primary">{exp.ruolo}</p>
-                    <p className="text-xs text-dark-text-muted">{exp.periodo}</p>
+                    <p className="text-xs text-muted-foreground">{exp.periodo}</p>
                   </div>
                 </div>
-                <p className="text-sm text-dark-text-muted mt-4 leading-relaxed">{exp.desc}</p>
+                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{exp.desc}</p>
               </div>
             ))}
           </div>
