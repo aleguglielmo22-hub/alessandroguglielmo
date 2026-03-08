@@ -182,7 +182,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/Alessandro_Guglielmo_CV.pdf"
+              href={asset("/Alessandro_Guglielmo_CV.pdf")}
               download
               className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors mt-2"
             >

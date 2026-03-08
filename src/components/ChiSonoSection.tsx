@@ -14,7 +14,7 @@ const ChiSonoSection = () => {
           {/* Image */}
           <div className="hidden lg:block">
             <img
-              src="/foto-profilo.jpeg"
+              src={asset("/foto-profilo.jpeg")}
               alt="Alessandro Guglielmo"
               className="w-full aspect-[4/5] object-cover rounded-2xl"
             />

@@ -48,7 +48,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/20 rounded-[20px]" />
               <img
-                src="/foto-profilo.jpeg"
+                src={asset("/foto-profilo.jpeg")}
                 alt="Alessandro Guglielmo — Football Analyst"
                 className="relative w-[380px] h-[460px] object-cover rounded-[20px]"
               />
