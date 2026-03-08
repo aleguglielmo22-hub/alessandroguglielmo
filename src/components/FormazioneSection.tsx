@@ -20,26 +20,26 @@ const FormazioneSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="formazione" className="py-24 md:py-32 bg-background">
+    <section id="formazione" className="py-24 md:py-32" style={{ '--background': '36 33% 97%', '--background-alt': '0 0% 100%', '--foreground': '0 0% 8%', '--muted-foreground': '0 0% 48%', '--border': '0 0% 85%', '--card': '0 0% 100%', '--muted': '36 10% 90%', backgroundColor: 'hsl(36 33% 97%)' } as React.CSSProperties}>
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Formazione</div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12">Percorso di Studi</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-[#141414]">Percorso di Studi</h2>
 
           {/* Timeline */}
           <div className="relative pl-8 md:pl-12 space-y-10">
             {/* Vertical line */}
-            <div className="absolute left-3 md:left-5 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-border" />
+            <div className="absolute left-3 md:left-5 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-[#d4d4d4]" />
 
             {timeline.map((item, i) => (
               <div key={i} className="relative">
                 {/* Dot */}
-                <div className="absolute -left-[22px] md:-left-[30px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background" />
+                <div className="absolute -left-[22px] md:-left-[30px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-[#f9f7f4]" />
                 <div className="space-y-1">
                   <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                     {item.year}
                   </span>
-                  <h3 className="text-lg font-display font-bold text-foreground">{item.title}</h3>
+                  <h3 className="text-lg font-display font-bold text-[#141414]">{item.title}</h3>
                   <div className="flex items-center gap-2">
                     {item.logo && (
                       <img
@@ -48,23 +48,23 @@ const FormazioneSection = () => {
                         className="w-6 h-6 rounded object-cover"
                       />
                     )}
-                    <p className="text-sm font-medium text-muted-foreground">{item.place}</p>
+                    <p className="text-sm font-medium text-[#7a7a7a]">{item.place}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-[#7a7a7a] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Software */}
-          <div className="mt-16 pt-10 border-t border-border">
-            <h3 className="text-xl font-display font-bold mb-2">Software &amp; Strumenti</h3>
-            <p className="text-sm text-muted-foreground mb-6">
+          <div className="mt-16 pt-10 border-t border-[#d4d4d4]">
+            <h3 className="text-xl font-display font-bold mb-2 text-[#141414]">Software &amp; Strumenti</h3>
+            <p className="text-sm text-[#7a7a7a] mb-6">
               Gli applicativi con cui lavoro quotidianamente per analisi, montaggio e dati.
             </p>
             <div className="flex flex-wrap gap-3">
               {software.map((s) => (
-                <span key={s} className="chip-hover">{s}</span>
+                <span key={s} className="border border-[#d4d4d4] rounded-full px-4 py-2 text-sm font-medium text-[#7a7a7a] transition-all duration-200 cursor-default hover:border-primary hover:text-primary">{s}</span>
               ))}
             </div>
           </div>

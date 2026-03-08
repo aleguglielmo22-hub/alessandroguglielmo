@@ -32,21 +32,21 @@ const ServiziSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="servizi" className="py-24 md:py-32 bg-background-alt">
+    <section id="servizi" className="py-24 md:py-32" style={{ backgroundColor: '#ffffff' }}>
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Servizi</div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">Cosa Posso Fare per Te</h2>
-          <p className="text-muted-foreground mb-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-3 text-[#141414]">Cosa Posso Fare per Te</h2>
+          <p className="text-[#7a7a7a] mb-12">
             Servizi professionali per club, staff tecnici, direttori sportivi e testate giornalistiche.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {servizi.map((s) => (
-              <div key={s.num} className="bg-background rounded-xl p-8 service-card card-hover border border-border">
+              <div key={s.num} className="bg-[#f9f7f4] rounded-xl p-8 service-card card-hover border border-[#d4d4d4]">
                 <span className="text-5xl font-display font-extrabold text-primary/15 leading-none">{s.num}</span>
-                <h3 className="font-display font-bold text-xl mt-3 mb-3">{s.titolo}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h3 className="font-display font-bold text-xl mt-3 mb-3 text-[#141414]">{s.titolo}</h3>
+                <p className="text-sm text-[#7a7a7a] leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
