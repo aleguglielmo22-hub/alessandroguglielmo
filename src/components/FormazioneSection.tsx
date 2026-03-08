@@ -20,21 +20,21 @@ const FormazioneSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="formazione" className="py-24 md:py-32 bg-[#f9f7f4] text-[#141414]">
+    <section id="formazione" className="py-24 md:py-32" style={{ '--background': '36 33% 97%', '--background-alt': '0 0% 100%', '--foreground': '0 0% 8%', '--muted-foreground': '0 0% 48%', '--border': '0 0% 85%', '--card': '0 0% 100%', '--muted': '36 10% 90%', backgroundColor: 'hsl(36 33% 97%)' } as React.CSSProperties}>
       <div className="container mx-auto">
         <div ref={ref} className={`scroll-reveal ${revealed ? "revealed" : ""}`}>
           <div className="section-label">Formazione</div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12">Percorso di Studi</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-[#141414]">Percorso di Studi</h2>
 
           {/* Timeline */}
           <div className="relative pl-8 md:pl-12 space-y-10">
             {/* Vertical line */}
-            <div className="absolute left-3 md:left-5 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-border" />
+            <div className="absolute left-3 md:left-5 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-[#d4d4d4]" />
 
             {timeline.map((item, i) => (
               <div key={i} className="relative">
                 {/* Dot */}
-                <div className="absolute -left-[22px] md:-left-[30px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background" />
+                <div className="absolute -left-[22px] md:-left-[30px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-[#f9f7f4]" />
                 <div className="space-y-1">
                   <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                     {item.year}
