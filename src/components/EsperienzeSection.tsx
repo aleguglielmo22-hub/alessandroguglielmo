@@ -3,21 +3,21 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const esperienze = [
   {
     club: "Guidonia Montecelio 1937",
-    logo: "/guidonia-montecelio.jpeg",
+    logo: "/guidonia-montecelio.png",
     ruolo: "Match Analyst U17 & U15",
     periodo: "2025",
     desc: "Analisi video e report tattici per lo staff tecnico del settore giovanile: studio post-partita delle squadre U17 e U15 e analisi pre-partita degli avversari.",
   },
   {
     club: "FC Trapani 1905",
-    logo: "/fc-trapani-1905.jpeg",
+    logo: "/fc-trapani-1905.png",
     ruolo: "First Team Analyst & Scout",
     periodo: "2024",
     desc: "Analisi video e report tattici per lo staff tecnico della prima squadra in Serie C: studio post-partita della propria squadra e analisi pre-partita degli avversari.",
   },
   {
     club: "Scout Underrated",
-    logo: "/scout-underrated.jpeg",
+    logo: "/scout-underrated.webp",
     ruolo: "Match Analyst & Scout",
     periodo: "2024 – In corso",
     desc: "Analisi individuali di calciatori attraverso video report e report scritti. Attività di scouting e ricerca di talenti emergenti.",
@@ -31,7 +31,7 @@ const esperienze = [
   },
   {
     club: "SpaceViola.com",
-    logo: "/spaceviola.jpeg",
+    logo: "/spaceviola.webp",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2021 – 2024",
     desc: "Produzione di contenuti tattici scritti per la testata: analisi di partite e squadre, approfondimenti su singoli calciatori e articoli di analisi tattica generale.",

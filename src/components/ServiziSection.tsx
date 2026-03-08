@@ -41,18 +41,8 @@ const ServiziSection = () => {
             Servizi professionali per club, staff tecnici, direttori sportivi e testate giornalistiche.
           </p>
 
-          {/* 3 columns first row, 2 centered second row */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {servizi.slice(0, 3).map((s) => (
-              <div key={s.num} className="bg-background rounded-xl p-8 service-card card-hover border border-border">
-                <span className="text-5xl font-display font-extrabold text-primary/15 leading-none">{s.num}</span>
-                <h3 className="font-display font-bold text-xl mt-3 mb-3">{s.titolo}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 mt-6 lg:max-w-[66.666%] lg:mx-auto">
-            {servizi.slice(3).map((s) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {servizi.map((s) => (
               <div key={s.num} className="bg-background rounded-xl p-8 service-card card-hover border border-border">
                 <span className="text-5xl font-display font-extrabold text-primary/15 leading-none">{s.num}</span>
                 <h3 className="font-display font-bold text-xl mt-3 mb-3">{s.titolo}</h3>
