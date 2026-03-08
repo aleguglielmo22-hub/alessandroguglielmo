@@ -39,7 +39,7 @@ const FormazioneSection = () => {
                   <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                     {item.year}
                   </span>
-                  <h3 className="text-lg font-display font-bold text-foreground">{item.title}</h3>
+                  <h3 className="text-lg font-display font-bold text-[#141414]">{item.title}</h3>
                   <div className="flex items-center gap-2">
                     {item.logo && (
                       <img
@@ -48,9 +48,9 @@ const FormazioneSection = () => {
                         className="w-6 h-6 rounded object-cover"
                       />
                     )}
-                    <p className="text-sm font-medium text-muted-foreground">{item.place}</p>
+                    <p className="text-sm font-medium text-[#7a7a7a]">{item.place}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-[#7a7a7a] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
