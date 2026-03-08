@@ -41,13 +41,15 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Photo placeholder — hidden on mobile */}
+          {/* Photo */}
           <div className="hidden lg:flex justify-center">
             <div className="relative">
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/20 rounded-[20px]" />
-              <div className="relative w-[380px] h-[460px] bg-muted rounded-[20px] flex items-center justify-center text-muted-foreground text-sm">
-                Foto profilo
-              </div>
+              <img
+                src="/foto-profilo.jpeg"
+                alt="Alessandro Guglielmo — Football Analyst"
+                className="relative w-[380px] h-[460px] object-cover rounded-[20px]"
+              />
             </div>
           </div>
         </div>

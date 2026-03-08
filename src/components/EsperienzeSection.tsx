@@ -2,31 +2,43 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const esperienze = [
   {
+    club: "Guidonia Montecelio 1937",
+    logo: "/guidonia-montecelio.jpeg",
+    ruolo: "Match Analyst U17 & U15",
+    periodo: "2025",
+    desc: "Analisi video e report tattici per lo staff tecnico del settore giovanile: studio post-partita delle squadre U17 e U15 e analisi pre-partita degli avversari.",
+  },
+  {
     club: "FC Trapani 1905",
+    logo: "/fc-trapani-1905.jpeg",
     ruolo: "First Team Analyst & Scout",
     periodo: "2024",
     desc: "Analisi video e report tattici per lo staff tecnico della prima squadra in Serie C: studio post-partita della propria squadra e analisi pre-partita degli avversari.",
   },
   {
     club: "Scout Underrated",
+    logo: "/scout-underrated.jpeg",
     ruolo: "Match Analyst & Scout",
     periodo: "2024 – In corso",
     desc: "Analisi individuali di calciatori attraverso video report e report scritti. Attività di scouting e ricerca di talenti emergenti.",
   },
   {
     club: "NapoliNetwork.com",
+    logo: "/napolinetwork.jpeg",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2022 – 2025",
     desc: "Redazione di articoli di approfondimento tattico: analisi di partite, sistemi di gioco, profili di calciatori e tematiche tattiche di carattere generale.",
   },
   {
     club: "SpaceViola.com",
+    logo: "/spaceviola.jpeg",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2021 – 2024",
     desc: "Produzione di contenuti tattici scritti per la testata: analisi di partite e squadre, approfondimenti su singoli calciatori e articoli di analisi tattica generale.",
   },
   {
     club: "Rever Roma",
+    logo: "/rever-roma.jpeg",
     ruolo: "Match Analyst",
     periodo: "2021 – 2022",
     desc: "Analisi video e report scritti sulle prestazioni della propria squadra e studio tattico delle squadre avversarie a supporto dello staff tecnico.",
@@ -55,9 +67,11 @@ const EsperienzeSection = () => {
                 className="bg-dark-card rounded-xl p-6 border border-dark-card hover:border-primary/30 card-hover"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-dark-bg flex items-center justify-center text-dark-text-muted text-xs shrink-0">
-                    Logo
-                  </div>
+                  <img
+                    src={exp.logo}
+                    alt={exp.club}
+                    className="w-12 h-12 rounded-xl object-cover bg-dark-bg shrink-0"
+                  />
                   <div className="space-y-1 flex-1">
                     <h3 className="font-display font-bold text-dark-text">{exp.club}</h3>
                     <p className="text-sm font-medium text-primary">{exp.ruolo}</p>

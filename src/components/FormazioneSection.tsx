@@ -1,13 +1,13 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const timeline = [
-  { year: "In corso", title: "Laurea Triennale in Scienze Motorie nel Calcio", place: "Università San Raffaele", desc: "Percorso focalizzato sull'analisi tattica, la preparazione atletica e la data analysis applicata al calcio." },
-  { year: "2025", title: "Fundamentals on Data Analytics", place: "Boolean", desc: "Fondamenti di analisi dati applicati al contesto sportivo." },
-  { year: "2024", title: "Talent Identification in Football", place: "The Football Association", desc: "Corso della federazione inglese sull'identificazione e valutazione dei talenti calcistici." },
-  { year: "2024", title: "Match Analyst Live Tag Pro", place: "Match Analysis Academy", desc: "Formazione sull'utilizzo del software LiveTag Pro per il tagging e l'analisi video in tempo reale." },
-  { year: "2022", title: "Tactical Master", place: "Panini Digital Sport Platform", desc: "Approfondimento avanzato sulla tattica calcistica e l'analisi dei sistemi di gioco." },
-  { year: "2021", title: "Professional Match Analyst", place: "LF Scouting", desc: "Corso professionale sulle metodologie di match analysis e scouting." },
-  { year: "2021", title: "Match Analyst PRO", place: "Emiscouting", desc: "Formazione professionale sull'analisi tattica e l'utilizzo di software di video analysis." },
+  { year: "In corso", title: "Laurea Triennale in Scienze Motorie nel Calcio", place: "Università San Raffaele", desc: "Percorso focalizzato sull'analisi tattica, la preparazione atletica e la data analysis applicata al calcio.", logo: null },
+  { year: "2025", title: "Fundamentals on Data Analytics", place: "Boolean", desc: "Fondamenti di analisi dati applicati al contesto sportivo.", logo: "/boolean.jpeg" },
+  { year: "2024", title: "Talent Identification in Football", place: "The Football Association", desc: "Corso della federazione inglese sull'identificazione e valutazione dei talenti calcistici.", logo: "/the-fa.jpeg" },
+  { year: "2024", title: "Match Analyst Live Tag Pro", place: "Match Analysis Academy", desc: "Formazione sull'utilizzo del software LiveTag Pro per il tagging e l'analisi video in tempo reale.", logo: "/match-analysis-academy.jpeg" },
+  { year: "2022", title: "Tactical Master", place: "Panini Digital Sport Platform", desc: "Approfondimento avanzato sulla tattica calcistica e l'analisi dei sistemi di gioco.", logo: "/panini-dsp.jpeg" },
+  { year: "2021", title: "Professional Match Analyst", place: "LF Scouting", desc: "Corso professionale sulle metodologie di match analysis e scouting.", logo: "/lf-scouting.jpeg" },
+  { year: "2021", title: "Match Analyst PRO", place: "Emiscouting", desc: "Formazione professionale sull'analisi tattica e l'utilizzo di software di video analysis.", logo: "/emiscouting.jpeg" },
 ];
 
 const software = [
@@ -39,7 +39,16 @@ const FormazioneSection = () => {
                     {item.year}
                   </span>
                   <h3 className="text-lg font-display font-bold text-foreground">{item.title}</h3>
-                  <p className="text-sm font-medium text-muted-foreground">{item.place}</p>
+                  <div className="flex items-center gap-2">
+                    {item.logo && (
+                      <img
+                        src={item.logo}
+                        alt={item.place}
+                        className="w-6 h-6 rounded object-cover"
+                      />
+                    )}
+                    <p className="text-sm font-medium text-muted-foreground">{item.place}</p>
+                  </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               </div>

@@ -3,23 +3,28 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const servizi = [
   {
     num: "01",
-    titolo: "Match Analysis",
+    titolo: "Team Studio",
     desc: "Studio completo dei prossimi avversari attraverso la visione di 3-6 partite. Report testuale e/o video con focus su fase offensiva, difensiva, transizioni e palle inattive. Pensato per staff tecnici che vogliono preparare le partite con un vantaggio informativo.",
   },
   {
     num: "02",
-    titolo: "Player Report",
-    desc: "Analisi approfondita di singoli calciatori per supportare decisioni di mercato o preparazione tattica. Report che evidenzia caratteristiche fisiche, tecniche e tattiche con eventuale appendice statistica.",
+    titolo: "Player Analysis",
+    desc: "Analisi approfondita di singoli calciatori con report che evidenzia caratteristiche fisiche, tecniche e tattiche, punti di forza e aree di miglioramento. Il servizio è disponibile sia per club, società e agenzie — a supporto di decisioni di mercato e preparazione tattica — sia direttamente con il calciatore, attraverso consulenze one-to-one mirate a lavorare sugli aspetti specifici del suo gioco.",
   },
   {
     num: "03",
-    titolo: "Video Analysis",
-    desc: "Montaggi tattici professionali con clip tagliate, annotazioni e grafica. Dall'analisi di un singolo sistema di gioco alla creazione di video report completi con software professionali.",
+    titolo: "Match Studio",
+    desc: "Analisi video e scritte di singole partite o situazioni di gioco specifiche. Dallo studio della prestazione della propria squadra all'analisi di fasi di gioco particolari, con report dettagliati e montaggi video con clip tagliate, annotazioni e grafica. Uno strumento concreto per lo staff tecnico per valutare ciò che ha funzionato e ciò che va migliorato.",
   },
   {
     num: "04",
-    titolo: "Articoli Tattici su Commissione",
+    titolo: "Football Writing",
     desc: "Contenuti scritti di approfondimento tattico per testate giornalistiche, blog sportivi o comunicazione interna di club. Approccio professionale e dati a supporto.",
+  },
+  {
+    num: "05",
+    titolo: "Scouting & Set Pieces DB",
+    desc: "Consulenze personalizzate per l'individuazione di profili di calciatori in linea con le esigenze del club e proposte mirate per il mercato. Database di soluzioni su calci piazzati — corner, punizioni e rimesse laterali — da studiare, adattare e implementare nel proprio sistema di gioco.",
   },
 ];
 
@@ -36,8 +41,18 @@ const ServiziSection = () => {
             Servizi professionali per club, staff tecnici, direttori sportivi e testate giornalistiche.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {servizi.map((s) => (
+          {/* 3 columns first row, 2 centered second row */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {servizi.slice(0, 3).map((s) => (
+              <div key={s.num} className="bg-background rounded-xl p-8 service-card card-hover border border-border">
+                <span className="text-5xl font-display font-extrabold text-primary/15 leading-none">{s.num}</span>
+                <h3 className="font-display font-bold text-xl mt-3 mb-3">{s.titolo}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 mt-6 lg:max-w-[66.666%] lg:mx-auto">
+            {servizi.slice(3).map((s) => (
               <div key={s.num} className="bg-background rounded-xl p-8 service-card card-hover border border-border">
                 <span className="text-5xl font-display font-extrabold text-primary/15 leading-none">{s.num}</span>
                 <h3 className="font-display font-bold text-xl mt-3 mb-3">{s.titolo}</h3>
@@ -55,7 +70,7 @@ const ServiziSection = () => {
               }}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-primary-hover transition-colors"
             >
-              Contattami per un preventivo
+              Contattami per info
             </a>
           </div>
         </div>
