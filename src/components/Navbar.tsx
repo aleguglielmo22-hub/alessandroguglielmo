@@ -81,7 +81,7 @@ const Navbar = () => {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="text-sm font-medium text-white/90 hover:text-white transition-colors flex items-center gap-1">
+            <button className="text-sm font-medium text-[#141414]/80 hover:text-primary transition-colors flex items-center gap-1">
               Analisi <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
             </button>
             {dropdownOpen && (
