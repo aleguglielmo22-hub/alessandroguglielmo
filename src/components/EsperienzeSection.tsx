@@ -31,7 +31,7 @@ const esperienze = [
   },
   {
     club: "SpaceViola.com",
-    logo: "/spaceviola.jpeg",
+    logo: "/spaceviola.webp",
     ruolo: "Tactical Analysis Journalist",
     periodo: "2021 – 2024",
     desc: "Produzione di contenuti tattici scritti per la testata: analisi di partite e squadre, approfondimenti su singoli calciatori e articoli di analisi tattica generale.",
