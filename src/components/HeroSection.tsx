@@ -20,7 +20,7 @@ const HeroSection = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
               Benvenuto nel mio portfolio
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-[1.05]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05]" style={{ fontFamily: "'Playfair Display', serif" }}>
               Alessandro<br />
               <span className="text-primary">Guglielmo</span>
             </h1>
@@ -33,7 +33,8 @@ const HeroSection = () => {
                 Scopri i miei lavori
               </Link>
               <a
-                href="#"
+                href="/Alessandro_Guglielmo_CV.pdf"
+                download
                 className="inline-flex items-center gap-2 border-2 border-foreground/20 text-foreground px-7 py-3.5 rounded-full text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
               >
                 <Download size={16} /> Scarica CV
