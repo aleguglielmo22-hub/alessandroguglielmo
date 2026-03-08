@@ -44,7 +44,7 @@ const FormazioneSection = () => {
                   <div className="flex items-center gap-2">
                     {item.logo && (
                       <img
-                        src={item.logo}
+                        src={asset(item.logo)}
                         alt={item.place}
                         className="w-6 h-6 rounded object-cover"
                       />
