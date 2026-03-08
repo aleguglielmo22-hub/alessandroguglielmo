@@ -1,7 +1,7 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const timeline = [
-  { year: "In corso", title: "Laurea Triennale in Scienze Motorie nel Calcio", place: "Università San Raffaele", desc: "Percorso focalizzato sull'analisi tattica, la preparazione atletica e la data analysis applicata al calcio.", logo: null },
+  { year: "In corso", title: "Laurea Triennale in Scienze Motorie nel Calcio", place: "Università San Raffaele", desc: "Percorso focalizzato sull'analisi tattica, la preparazione atletica e la data analysis applicata al calcio.", logo: "/universita-san-raffaele.svg" },
   { year: "2025", title: "Fundamentals on Data Analytics", place: "Boolean", desc: "Fondamenti di analisi dati applicati al contesto sportivo.", logo: "/boolean.png" },
   { year: "2024", title: "Talent Identification in Football", place: "The Football Association", desc: "Corso della federazione inglese sull'identificazione e valutazione dei talenti calcistici.", logo: "/the-fa.png" },
   { year: "2024", title: "Match Analyst Live Tag Pro", place: "Match Analysis Academy", desc: "Formazione sull'utilizzo del software LiveTag Pro per il tagging e l'analisi video in tempo reale.", logo: "/match-analysis-academy.jpeg" },
