@@ -48,14 +48,14 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#141414] shadow-md"
-          : "bg-[#141414]/95"
+          ? "bg-white shadow-md"
+          : "bg-white/95 backdrop-blur-xl"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-0 text-2xl font-serif font-black select-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-          <span className="text-white">A</span>
-          <span className="text-foreground">G</span>
+        <Link to="/" className="flex items-center gap-0 text-2xl font-black select-none" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="text-primary">A</span>
+          <span className="text-[#141414]">G</span>
         </Link>
 
         {/* Desktop nav */}
