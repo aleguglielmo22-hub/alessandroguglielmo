@@ -110,7 +110,7 @@ const Navbar = () => {
                 handleNavClick(l.href);
                 if (location.pathname !== "/") window.location.href = l.href;
               }}
-              className="text-sm font-medium text-white/90 hover:text-white transition-colors"
+              className="text-sm font-medium text-[#141414]/80 hover:text-primary transition-colors"
             >
               {l.label}
             </a>
