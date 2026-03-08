@@ -91,7 +91,7 @@ const Navbar = () => {
                     <Link
                       key={item.hash}
                       to={`/analisi${item.hash}`}
-                      className="block px-4 py-2.5 text-sm rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
+                      className="block px-4 py-2.5 text-sm text-[#141414] rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>

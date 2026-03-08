@@ -71,15 +71,15 @@ const EsperienzeSection = () => {
                   <img
                     src={exp.logo}
                     alt={exp.club}
-                    className="w-12 h-12 rounded-xl object-cover bg-dark-bg shrink-0"
+                    className="w-12 h-12 rounded-xl object-cover bg-background shrink-0"
                   />
                   <div className="space-y-1 flex-1">
-                    <h3 className="font-display font-bold text-dark-text">{exp.club}</h3>
+                    <h3 className="font-display font-bold text-foreground">{exp.club}</h3>
                     <p className="text-sm font-medium text-primary">{exp.ruolo}</p>
-                    <p className="text-xs text-dark-text-muted">{exp.periodo}</p>
+                    <p className="text-xs text-muted-foreground">{exp.periodo}</p>
                   </div>
                 </div>
-                <p className="text-sm text-dark-text-muted mt-4 leading-relaxed">{exp.desc}</p>
+                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{exp.desc}</p>
               </div>
             ))}
           </div>
