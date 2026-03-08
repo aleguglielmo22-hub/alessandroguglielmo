@@ -3,7 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const esperienze = [
   {
     club: "Guidonia Montecelio 1937",
-    logo: "/guidonia-montecelio.jpeg",
+    logo: "/guidonia-montecelio.png",
     ruolo: "Match Analyst U17 & U15",
     periodo: "2025",
     desc: "Analisi video e report tattici per lo staff tecnico del settore giovanile: studio post-partita delle squadre U17 e U15 e analisi pre-partita degli avversari.",
