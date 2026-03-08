@@ -1,5 +1,6 @@
 // Esperienze section with club logos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const esperienze = [
   {

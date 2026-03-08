@@ -1,5 +1,6 @@
 // Formazione section with institution logos
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const timeline = [
   { year: "In corso", title: "Laurea Triennale in Scienze Motorie nel Calcio", place: "Università San Raffaele", desc: "Percorso focalizzato sull'analisi tattica, la preparazione atletica e la data analysis applicata al calcio.", logo: "/universita-san-raffaele.svg" },

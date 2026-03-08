@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const HeroSection = () => {
   const { ref, revealed } = useScrollReveal(0.1);

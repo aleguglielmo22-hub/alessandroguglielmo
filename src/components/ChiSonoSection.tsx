@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { asset } from "@/lib/assets";
 
 const ChiSonoSection = () => {
   const { ref, revealed } = useScrollReveal();
