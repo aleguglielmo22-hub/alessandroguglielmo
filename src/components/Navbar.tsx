@@ -149,18 +149,18 @@ const Navbar = () => {
                   handleNavClick(l.href);
                   if (location.pathname !== "/") window.location.href = l.href;
                 }}
-                className="text-base font-medium py-2 text-[#141414] hover:text-primary transition-colors"
+                className="text-base font-medium py-2 text-white hover:text-primary transition-colors"
               >
                 {l.label}
               </a>
             ))}
-            <div className="border-t border-[#141414]/10 pt-3">
+            <div className="border-t border-white/10 pt-3">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">— Analisi —</span>
               {analisiDropdown.map((item) => (
                 <Link
                   key={item.hash}
                   to={`/analisi${item.hash}`}
-                  className="block pl-4 py-2 text-base text-[#141414]/70 hover:text-primary transition-colors"
+                  className="block pl-4 py-2 text-base text-white/70 hover:text-primary transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -176,7 +176,7 @@ const Navbar = () => {
                   handleNavClick(l.href);
                   if (location.pathname !== "/") window.location.href = l.href;
                 }}
-                className="text-base font-medium py-2 text-[#141414] hover:text-primary transition-colors"
+                className="text-base font-medium py-2 text-white hover:text-primary transition-colors"
               >
                 {l.label}
               </a>
