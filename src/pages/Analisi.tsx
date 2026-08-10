@@ -1,140 +1,155 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
+import { useLang } from '../i18n'
+import { categories, sortedWorks } from '../data/works'
+import type { WorkCategory } from '../data/works'
+import { Reveal } from '../components/Reveal'
+import { WorkCard } from '../components/WorkCard'
+import { IconArrowLeft } from '../components/Icons'
 
-type Category = "tutti" | "match-studio" | "team-studio" | "player-report" | "articoli";
+type Filter = WorkCategory | 'all'
 
-interface AnalisiCard {
-  id: number;
-  categoria: Category;
-  tipo: string;
-  titolo: string;
-  desc: string;
-  data: string;
+const VALID: Filter[] = ['all', ...categories.map((c) => c.id)]
+
+function readFilter(param: string | null, hash: string): Filter {
+  const raw = (param ?? hash.replace(/^#/, '')).toLowerCase()
+  return (VALID as string[]).includes(raw) ? (raw as Filter) : 'all'
 }
 
-const cards: AnalisiCard[] = [
-  { id: 1, categoria: "match-studio", tipo: "Video", titolo: "Post-partita: analisi prestazione collettiva", desc: "Studio della fase offensiva e difensiva della propria squadra nell'ultimo match di campionato.", data: "GG/MM/AAAA" },
-  { id: 2, categoria: "match-studio", tipo: "PDF", titolo: "Report post-partita con dati e clip", desc: "Analisi integrata con statistiche e sequenze video a supporto delle osservazioni tattiche.", data: "GG/MM/AAAA" },
-  { id: 3, categoria: "team-studio", tipo: "Report", titolo: "Studio avversario: sistema di gioco e transizioni", desc: "Analisi del prossimo avversario basata sulla visione di 4 partite recenti.", data: "GG/MM/AAAA" },
-  { id: 4, categoria: "team-studio", tipo: "Slides", titolo: "Presentazione pre-partita per lo staff", desc: "Slide sintetiche con punti di forza e debolezza dell'avversario per il briefing tecnico.", data: "GG/MM/AAAA" },
-  { id: 5, categoria: "player-report", tipo: "Report", titolo: "Profilo completo: centrocampista Under 21", desc: "Valutazione tecnica, tattica e fisica con appendice statistica e clip di riferimento.", data: "GG/MM/AAAA" },
-  { id: 6, categoria: "player-report", tipo: "PDF", titolo: "Scouting report: esterno offensivo", desc: "Analisi individuale di un talento emergente osservato in contesto internazionale.", data: "GG/MM/AAAA" },
-  { id: 7, categoria: "articoli", tipo: "Articolo", titolo: "Il pressing alto nel calcio moderno", desc: "Approfondimento tattico sull'evoluzione del pressing alto e i modelli di riferimento.", data: "GG/MM/AAAA" },
-  { id: 8, categoria: "articoli", tipo: "Articolo", titolo: "Analisi del sistema di gioco 3-4-2-1", desc: "Studio dettagliato del modulo con esempi pratici tratti dalle principali leghe europee.", data: "GG/MM/AAAA" },
-];
+export default function Analisi() {
+  const { t, tr } = useLang()
+  const [searchParams, setSearchParams] = useSearchParams()
+  // Il filtro arriva da ?cat=… (link del dropdown navbar) o dall'hash #…
+  const [filter, setFilter] = useState<Filter>(() =>
+    readFilter(searchParams.get('cat'), window.location.hash),
+  )
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const [indicator, setIndicator] = useState({ left: 0, width: 0 })
 
-const tabs: { key: Category; label: string }[] = [
-  { key: "tutti", label: "Tutti" },
-  { key: "match-studio", label: "Match Studio" },
-  { key: "team-studio", label: "Team Studio" },
-  { key: "player-report", label: "Player Report" },
-  { key: "articoli", label: "Articoli" },
-];
+  const all = useMemo(() => sortedWorks(), [])
 
-const catLabels: Record<string, string> = {
-  "match-studio": "Match Studio",
-  "team-studio": "Team Studio",
-  "player-report": "Player Report",
-  "articoli": "Articoli",
-};
-
-const Analisi = () => {
-  const location = useLocation();
-  const [active, setActive] = useState<Category>("tutti");
+  // Sincronizza lo stato quando cambia la query string (es. click su un'altra voce del dropdown)
+  useEffect(() => {
+    setFilter(readFilter(searchParams.get('cat'), window.location.hash))
+  }, [searchParams])
 
   useEffect(() => {
-    const hash = location.hash.replace("#", "") as Category;
-    if (tabs.some((t) => t.key === hash)) {
-      setActive(hash);
+    window.scrollTo({ top: 0 })
+  }, [])
+
+  // Posiziona la sottolineatura arancione sotto la tab attiva
+  useEffect(() => {
+    const update = () => {
+      const el = tabRefs.current[filter]
+      if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
     }
-  }, [location.hash]);
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [filter, tr])
 
-  const filtered = active === "tutti" ? cards : cards.filter((c) => c.categoria === active);
+  const counts = useMemo(() => {
+    const map: Record<string, number> = { all: all.length }
+    categories.forEach((c) => {
+      map[c.id] = all.filter((w) => w.category === c.id).length
+    })
+    return map
+  }, [all])
 
-  const getCount = (key: Category) =>
-    key === "tutti" ? cards.length : cards.filter((c) => c.categoria === key).length;
+  const visible = filter === 'all' ? all : all.filter((w) => w.category === filter)
+
+  const selectFilter = (next: Filter) => {
+    setFilter(next)
+    setSearchParams(next === 'all' ? {} : { cat: next }, { replace: true })
+  }
+
+  const tabs: { id: Filter; label: string }[] = [
+    { id: 'all', label: t.works.all },
+    ...categories.map((c) => ({ id: c.id as Filter, label: tr(c.label) })),
+  ]
 
   return (
-    <>
-      <Navbar />
-      <main className="pt-24 pb-16 min-h-screen bg-background relative">
-        {/* Glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="container mx-auto relative">
+    <div className="bg-canvas pb-24 md:pb-32">
+      {/* ── Header ─────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-52 right-0 size-[520px] rounded-full opacity-70 blur-[100px]"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(255,107,0,0.16) 0%, transparent 70%)',
+          }}
+        />
+        <div className="shell relative pt-14 pb-12 md:pt-20">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+            className="group inline-flex min-h-[44px] items-center gap-2 text-[14px] font-medium text-muted transition-colors hover:text-accent"
           >
-            <ArrowLeft size={16} /> Torna alla Home
+            <IconArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" />
+            {t.works.back}
           </Link>
 
-          <div className="section-label">Archivio</div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-3">Analisi</h1>
-          <p className="text-muted-foreground max-w-2xl mb-10">
-            Tutti i miei lavori: analisi tattiche, studi sugli avversari, player report e articoli di approfondimento.
+          <h1 className="mt-6 font-display text-[clamp(2.6rem,8vw,5rem)] leading-[0.95] font-extrabold tracking-[-0.04em]">
+            {t.works.pageTitle}
+          </h1>
+          <p className="mt-5 max-w-[62ch] text-[1.0625rem] leading-relaxed text-muted">
+            {t.works.pageSubtitle}
           </p>
+        </div>
+      </section>
 
-          {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-10 border-b border-border">
+      {/* ── Tab filtri ─────────────────────────────────────────── */}
+      <div className="sticky top-[72px] z-30 border-y border-line bg-canvas/85 backdrop-blur-xl">
+        <div className="shell">
+          <div className="no-scrollbar relative -mx-1 flex gap-1 overflow-x-auto">
             {tabs.map((tab) => (
               <button
-                key={tab.key}
-                onClick={() => setActive(tab.key)}
-                className={`relative px-4 py-3 text-sm font-medium transition-colors ${
-                  active === tab.key ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                key={tab.id}
+                type="button"
+                ref={(el) => {
+                  tabRefs.current[tab.id] = el
+                }}
+                onClick={() => selectFilter(tab.id)}
+                aria-pressed={filter === tab.id}
+                className={`relative flex min-h-[52px] shrink-0 items-center gap-2 px-4 font-display text-[15px] font-semibold whitespace-nowrap transition-colors duration-300 ${
+                  filter === tab.id ? 'text-accent' : 'text-muted hover:text-ink'
                 }`}
               >
                 {tab.label}
                 <span
-                  className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${
-                    active === tab.key
-                      ? "bg-primary/15 text-primary"
-                      : "bg-muted text-muted-foreground"
+                  className={`rounded-full px-1.5 py-0.5 text-[11px] font-bold transition-colors duration-300 ${
+                    filter === tab.id ? 'bg-accent/12 text-accent' : 'bg-ink/5 text-muted'
                   }`}
                 >
-                  {getCount(tab.key)}
+                  {counts[tab.id] ?? 0}
                 </span>
-                {active === tab.key && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary" />
-                )}
               </button>
             ))}
-          </div>
 
-          {/* Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((card) => (
-              <div
-                key={card.id}
-                className="bg-background-alt rounded-xl overflow-hidden border border-border card-hover"
-              >
-                <div className="aspect-[16/10] bg-muted relative">
-                  <span className="absolute top-3 left-3 text-xs font-semibold bg-primary text-primary-foreground px-3 py-1 rounded-full">
-                    {card.tipo}
-                  </span>
-                  <span className="absolute top-3 right-3 text-xs font-semibold bg-foreground/80 text-background px-3 py-1 rounded-full">
-                    {catLabels[card.categoria]}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display font-bold text-base mb-2">{card.titolo}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{card.desc}</p>
-                  <div className="border-t border-border pt-3">
-                    <span className="text-xs text-muted-foreground">{card.data}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {/* Sottolineatura animata */}
+            <span
+              aria-hidden="true"
+              className="absolute bottom-0 h-[2px] bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{ left: indicator.left, width: indicator.width }}
+            />
           </div>
         </div>
-      </main>
-      <Footer />
-    </>
-  );
-};
+      </div>
 
-export default Analisi;
+      {/* ── Griglia lavori ─────────────────────────────────────── */}
+      <div className="shell pt-12">
+        {visible.length === 0 ? (
+          <p className="py-20 text-center text-[15px] text-muted">{t.works.empty}</p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((work, i) => (
+              // key con il filtro: rianima le card a ogni cambio di tab
+              <Reveal key={`${filter}-${work.id}`} delay={Math.min(i, 6) * 70} className="h-full">
+                <WorkCard work={work} />
+              </Reveal>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}

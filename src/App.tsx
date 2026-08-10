@@ -1,30 +1,41 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Analisi from "./pages/Analisi";
-import NotFound from "./pages/NotFound";
+import { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
+import Home from './pages/Home'
+import Analisi from './pages/Analisi'
 
-const queryClient = new QueryClient();
+/** Porta alla sezione corretta quando si atterra su /#chi-sono da un'altra pagina. */
+function ScrollToHash() {
+  const { pathname, hash } = useLocation()
 
-const basename = import.meta.env.BASE_URL || "/";
+  useEffect(() => {
+    if (!hash) return
+    const id = decodeURIComponent(hash.slice(1))
+    // rAF: attende che la pagina di destinazione sia montata
+    const raf = requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [pathname, hash])
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename={basename}>
+  return null
+}
+
+export default function App() {
+  return (
+    <div className="grain flex min-h-dvh flex-col">
+      <ScrollToHash />
+      <Navbar />
+      <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
           <Route path="/analisi" element={<Analisi />} />
-          <Route path="*" element={<NotFound />} />
+          {/* Qualsiasi altro percorso torna alla homepage */}
+          <Route path="*" element={<Home />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+      </main>
+      <Footer />
+    </div>
+  )
+}

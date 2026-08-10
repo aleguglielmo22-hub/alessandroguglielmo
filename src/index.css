@@ -1,128 +1,180 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer base {
+/* ---------------------------------------------------------------
+   DESIGN SYSTEM — tutti i colori/font del sito nascono qui.
+   Cambiando queste variabili cambia l'intero sito.
+---------------------------------------------------------------- */
+@theme {
+  /* Token che cambiano tra tema chiaro e scuro (valori dark più sotto) */
+  --color-canvas: #f9f7f4;
+  --color-surface: #ffffff;
+  --color-ink: #141414;
+  --color-muted: #7a7a7a;
+  --color-line: #e6e2dc;
+
+  /* Token invariabili: la sezione Esperienze è scura in entrambi i temi */
+  --color-night: #141414;
+  --color-accent: #ff6b00;
+  --color-accent-hover: #e86000;
+
+  --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1180px;
+}
+
+/* ---------------------------------------------------------------
+   TEMA SCURO — si attiva da solo se il dispositivo è impostato su
+   "scuro". Nessun toggle: ridefinendo le variabili qui sotto tutte
+   le utility Tailwind (che le leggono via var()) si adattano.
+---------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: 0 0% 8%;
-    --background-alt: 0 0% 10%;
-    --foreground: 0 0% 93%;
-
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 93%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 93%;
-
-    --primary: 25 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 25 100% 45%;
-
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 93%;
-
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 55%;
-
-    --accent: 25 100% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 25 100% 50%;
-
-    --radius: 0.75rem;
-
-    --dark-bg: 0 0% 8%;
-    --dark-card: 0 0% 12%;
-    --dark-text: 0 0% 93%;
-    --dark-text-muted: 0 0% 55%;
-
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 93%;
-    --sidebar-primary: 0 0% 93%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 93%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 25 100% 50%;
+    --color-canvas: #101010;
+    --color-surface: #181817;
+    --color-ink: #f4f1ec;
+    --color-muted: #9a938c;
+    --color-line: #2b2926;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  html {
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+    /* compensa la navbar sticky quando si atterra su un'ancora */
+    scroll-padding-top: 92px;
+    -webkit-text-size-adjust: 100%;
   }
+
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Animazioni d'ingresso della hero (page load orchestrato con delay) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 @layer components {
-  .section-label {
-    @apply flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-6;
-  }
-  .section-label::before {
-    content: '';
-    @apply w-8 h-[2px] bg-primary inline-block;
-  }
-  .section-label-center {
-    @apply text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-6 text-center;
+  /* Contenitore standard di tutte le sezioni */
+  .shell {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 24px;
   }
 
-  .scroll-reveal {
+  @media (min-width: 900px) {
+    .shell {
+      padding-inline: 40px;
+    }
+  }
+
+  /* Scroll reveal: fade-up progressivo (vedi components/Reveal.tsx) */
+  .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateY(26px);
+    transition:
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
   }
-  .scroll-reveal.revealed {
+
+  .reveal[data-visible='true'] {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 ease-out;
-  }
-  .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
-  }
-
-  .chip-hover {
-    @apply border border-border rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 cursor-default;
-  }
-  .chip-hover:hover {
-    @apply border-primary text-primary;
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
   }
 
-  .service-card {
-    @apply relative pl-6 border-l-2 border-transparent transition-all duration-300;
-  }
-  .service-card::before {
+  /* Texture a grana finissima: toglie l'effetto "flat" allo sfondo */
+  .grain::after {
     content: '';
-    @apply absolute left-0 top-0 w-[2px] h-0 bg-primary transition-all duration-300;
-  }
-  .service-card:hover::before {
-    @apply h-full;
-  }
-  .service-card:hover {
-    @apply border-l-primary;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .contact-btn {
-    @apply inline-flex items-center gap-3 border border-border rounded-full px-5 py-3 text-sm font-medium text-foreground transition-all duration-200;
-  }
-  .contact-btn:hover {
-    @apply border-primary text-primary;
+  /* Su fondo scuro la grana va schiarita, non moltiplicata */
+  @media (prefers-color-scheme: dark) {
+    .grain::after {
+      mix-blend-mode: screen;
+      opacity: 0.05;
+    }
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Nasconde la scrollbar orizzontale delle tab filtro su mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }
