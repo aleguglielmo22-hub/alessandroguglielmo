@@ -88,7 +88,7 @@ export default function Analisi() {
             {t.works.back}
           </Link>
 
-          <h1 className="mt-6 font-display text-[clamp(2.6rem,8vw,5rem)] leading-[0.95] font-extrabold tracking-[-0.04em]">
+          <h1 className="mt-6 font-display text-[clamp(3.3rem,10vw,6.4rem)] leading-[0.88] font-medium tracking-[-0.01em]">
             {t.works.pageTitle}
           </h1>
           <p className="mt-5 max-w-[62ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -110,7 +110,7 @@ export default function Analisi() {
                 }}
                 onClick={() => selectFilter(tab.id)}
                 aria-pressed={filter === tab.id}
-                className={`relative flex min-h-[52px] shrink-0 items-center gap-2 px-4 font-display text-[15px] font-semibold whitespace-nowrap transition-colors duration-300 ${
+                className={`relative flex min-h-[52px] shrink-0 items-center gap-2 px-4 font-body text-[15px] font-semibold whitespace-nowrap transition-colors duration-300 ${
                   filter === tab.id ? 'text-accent' : 'text-muted hover:text-ink'
                 }`}
               >

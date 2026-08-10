@@ -16,7 +16,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-6 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[1] font-extrabold tracking-[-0.04em]">
+          <h2 className="mt-6 font-display text-[clamp(3rem,8.5vw,5.8rem)] leading-[0.9] font-medium tracking-[-0.01em]">
             {t.contact.title}
           </h2>
         </Reveal>
@@ -38,7 +38,7 @@ export function Contact() {
                   className="group inline-flex min-h-[52px] items-center gap-3 rounded-full border border-line px-6 text-[15px] font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                 >
                   {Icon && <Icon className="size-5 text-muted transition-colors duration-300 group-hover:text-accent" />}
-                  <span className="font-display font-semibold">{link.label}</span>
+                  <span className="font-body font-semibold">{link.label}</span>
                   <span className="hidden text-muted transition-colors duration-300 group-hover:text-accent/80 sm:inline">
                     {tr(link.value)}
                   </span>

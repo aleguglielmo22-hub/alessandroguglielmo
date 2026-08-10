@@ -21,7 +21,7 @@ export function WorksPreview() {
               <SectionLabel>{t.works.label}</SectionLabel>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] font-bold">
+              <h2 className="mt-6 font-display text-[clamp(2.5rem,6.2vw,4.15rem)] leading-[0.95] font-medium">
                 {t.works.title}
               </h2>
             </Reveal>
@@ -30,7 +30,7 @@ export function WorksPreview() {
           <Reveal delay={140}>
             <Link
               to="/analisi"
-              className="group inline-flex min-h-[44px] items-center gap-2 font-display text-[15px] font-semibold text-ink transition-colors hover:text-accent"
+              className="group inline-flex min-h-[44px] items-center gap-2 font-body text-[15px] font-semibold text-ink transition-colors hover:text-accent"
             >
               {t.works.seeAll}
               <IconArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />

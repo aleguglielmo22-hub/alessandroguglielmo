@@ -55,7 +55,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={80}>
-            <h2 className="mt-6 font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] font-bold">
+            <h2 className="mt-6 font-display text-[clamp(2.5rem,6.2vw,4.15rem)] leading-[0.95] font-medium">
               {t.about.titleBefore}
               <span className="text-accent">{t.about.titleAccent}</span>
             </h2>
@@ -78,7 +78,7 @@ export function About() {
                 <div key={stat.label}>
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
-                    <span className="block font-display text-[clamp(1.9rem,4.5vw,2.75rem)] leading-none font-extrabold tracking-tight text-accent">
+                    <span className="block font-display text-[clamp(2.4rem,5.6vw,3.5rem)] leading-none font-semibold tracking-tight text-accent">
                       {stat.value}
                     </span>
                     <span className="mt-2 block text-[13px] leading-snug text-muted">

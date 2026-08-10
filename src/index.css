@@ -17,7 +17,12 @@
   --color-accent: #ff6b00;
   --color-accent-hover: #e86000;
 
-  --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  /*
+   * DISPLAY (titoli, numeri grandi): Big Shoulders Display — condensato e alto.
+   * Va usato SOLO da ~18px in su e a pesi leggeri (400-600): sotto quella soglia
+   * è troppo stretto e le UI piccole vanno tenute in --font-body.
+   */
+  --font-display: 'Big Shoulders Display', 'Oswald', ui-sans-serif, sans-serif;
   --font-body: 'Figtree', ui-sans-serif, system-ui, sans-serif;
 
   --breakpoint-sm: 600px;
@@ -64,7 +69,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    /* Big Shoulders è già condensato: una crenatura negativa forte farebbe collidere le lettere */
+    letter-spacing: -0.005em;
     text-wrap: balance;
   }
 

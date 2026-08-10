@@ -15,7 +15,7 @@ export function Education() {
           <SectionLabel>{t.education.label}</SectionLabel>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="mt-6 max-w-2xl font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] font-bold">
+          <h2 className="mt-6 max-w-2xl font-display text-[clamp(2.5rem,6.2vw,4.15rem)] leading-[0.95] font-medium">
             {t.education.title}
           </h2>
         </Reveal>
@@ -36,7 +36,7 @@ export function Education() {
             <Reveal as="li" key={item.id} delay={i * 70} className="relative block">
               <div className="grid grid-cols-[auto_1fr] gap-x-5 pb-11 md:grid-cols-[7rem_auto_1fr] md:gap-x-7">
                 {/* Anno (desktop: colonna dedicata a sinistra della linea) */}
-                <span className="col-start-2 row-start-1 mb-2 font-display text-[13px] font-semibold tracking-[0.12em] text-accent uppercase md:col-start-1 md:row-start-1 md:mb-0 md:justify-self-end md:pt-0.5 md:text-right">
+                <span className="col-start-2 row-start-1 mb-2 font-body text-[13px] font-semibold tracking-[0.12em] text-accent uppercase md:col-start-1 md:row-start-1 md:mb-0 md:justify-self-end md:pt-0.5 md:text-right">
                   {item.year === 'ongoing' ? t.education.ongoing : item.year}
                 </span>
 
@@ -49,11 +49,11 @@ export function Education() {
                 <div className="col-start-2 row-start-2 md:col-start-3 md:row-span-2 md:row-start-1">
                   <div className="flex flex-wrap items-center gap-3">
                     <LogoBadge logo={item.logo} name={item.institution} className="size-10" />
-                    <h3 className="font-display text-[1.15rem] leading-snug font-semibold text-ink">
+                    <h3 className="font-display text-[1.32rem] leading-snug font-semibold text-ink">
                       {tr(item.title)}
                     </h3>
                   </div>
-                  <p className="mt-2 font-display text-[15px] font-medium text-ink/60">
+                  <p className="mt-2 font-body text-[15px] font-medium text-ink/60">
                     {item.institution}
                   </p>
                   <p className="mt-2.5 max-w-[58ch] text-[15px] leading-relaxed text-muted">
@@ -68,7 +68,7 @@ export function Education() {
         {/* ── Software & Strumenti ──────────────────────────────── */}
         <div className="mt-6 border-t border-line pt-14">
           <Reveal>
-            <h3 className="font-display text-[1.4rem] font-bold">{t.education.toolsTitle}</h3>
+            <h3 className="font-display text-[1.62rem] font-semibold">{t.education.toolsTitle}</h3>
             <p className="mt-2 max-w-[52ch] text-[15px] text-muted">{t.education.toolsSubtitle}</p>
           </Reveal>
 
@@ -77,7 +77,7 @@ export function Education() {
               {tools.map((tool) => (
                 <li
                   key={tool}
-                  className="rounded-full border border-line bg-surface/60 px-4 py-2 font-display text-[14px] font-medium text-ink/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                  className="rounded-full border border-line bg-surface/60 px-4 py-2 font-body text-[14px] font-medium text-ink/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                 >
                   {tool}
                 </li>

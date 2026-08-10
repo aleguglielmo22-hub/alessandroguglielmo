@@ -7,7 +7,7 @@ import { cvUrl } from '../data/profile'
 import { IconChevronDown, IconClose, IconDownload, IconMenu } from './Icons'
 
 const LOGO = (
-  <span className="font-display text-2xl leading-none font-black tracking-tight">
+  <span className="font-display text-[2rem] leading-none font-bold tracking-tight">
     {/* Logo testuale segnaposto: sostituibile con un file SVG/PNG */}
     <span className="text-accent">A</span>
     <span className="text-ink">G</span>
@@ -153,7 +153,7 @@ export function Navbar() {
           <a
             href={cvUrl ?? '#'}
             {...(cvUrl ? { download: '', target: '_blank', rel: 'noopener noreferrer' } : {})}
-            className="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-display text-[14px] font-semibold text-white transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_10px_24px_-10px_var(--color-accent)] md:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-body text-[14px] font-semibold text-white transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_10px_24px_-10px_var(--color-accent)] md:inline-flex"
           >
             <IconDownload className="size-4" />
             {t.nav.cv}
@@ -182,14 +182,14 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="flex min-h-[48px] items-center border-b border-line/70 font-display text-lg text-ink"
+              className="flex min-h-[48px] items-center border-b border-line/70 font-display text-[1.4rem] font-medium text-ink"
             >
               {l.label}
             </Link>
           ))}
 
           <div className="border-b border-line/70 py-3">
-            <p className="font-display text-lg text-ink">{t.nav.analysis}</p>
+            <p className="font-display text-[1.4rem] font-medium text-ink">{t.nav.analysis}</p>
             <div className="mt-2 flex flex-col">
               {categories.map((c) => (
                 <Link
@@ -207,7 +207,7 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="flex min-h-[48px] items-center border-b border-line/70 font-display text-lg text-ink"
+              className="flex min-h-[48px] items-center border-b border-line/70 font-display text-[1.4rem] font-medium text-ink"
             >
               {l.label}
             </Link>
@@ -216,7 +216,7 @@ export function Navbar() {
           <a
             href={cvUrl ?? '#'}
             {...(cvUrl ? { download: '', target: '_blank', rel: 'noopener noreferrer' } : {})}
-            className="mt-4 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-accent px-6 font-display font-semibold text-white"
+            className="mt-4 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-accent px-6 font-body font-semibold text-white"
           >
             <IconDownload className="size-4" />
             {t.nav.cv}
@@ -253,7 +253,7 @@ function LangToggle({
           type="button"
           onClick={() => setLang(code)}
           aria-pressed={lang === code}
-          className={`relative z-10 w-9 py-1.5 font-display text-[12px] font-bold tracking-wider uppercase transition-colors duration-300 ${
+          className={`relative z-10 w-9 py-1.5 font-body text-[12px] font-bold tracking-wider uppercase transition-colors duration-300 ${
             lang === code ? 'text-canvas' : 'text-muted hover:text-ink'
           }`}
         >

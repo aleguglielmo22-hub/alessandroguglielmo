@@ -23,11 +23,11 @@ export function Hero() {
       <div className="shell relative grid items-center gap-14 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28 lg:gap-20">
         {/* ── Colonna testo ─────────────────────────────────────── */}
         <div className="flex flex-col items-center text-center md:items-start md:text-left">
-          <p className="font-display text-[11px] font-semibold tracking-[0.24em] text-accent uppercase opacity-0 [animation:fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.05s_forwards]">
+          <p className="font-body text-[11px] font-semibold tracking-[0.24em] text-accent uppercase opacity-0 [animation:fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.05s_forwards]">
             {t.hero.eyebrow}
           </p>
 
-          <h1 className="mt-5 font-display text-[clamp(2.9rem,10vw,6.5rem)] leading-[0.92] font-extrabold tracking-[-0.045em]">
+          <h1 className="mt-5 font-display text-[clamp(3.7rem,13.5vw,9.6rem)] leading-[0.86] font-medium tracking-[-0.01em]">
             <span className="block opacity-0 [animation:fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]">
               {t.hero.firstName}
             </span>
@@ -36,7 +36,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 flex items-center gap-3 font-display text-[clamp(1.05rem,2.4vw,1.4rem)] font-medium text-muted opacity-0 [animation:fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.42s_forwards]">
+          <p className="mt-6 flex items-center gap-3 font-display text-[clamp(1.25rem,2.9vw,1.75rem)] font-normal text-muted opacity-0 [animation:fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.42s_forwards]">
             <span className="hidden h-px w-10 bg-ink/20 md:inline-block" aria-hidden="true" />
             {t.hero.role}
           </p>
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="mt-10 flex flex-col items-stretch gap-3 opacity-0 [animation:fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.55s_forwards] sm:flex-row sm:items-center">
             <Link
               to="/analisi"
-              className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-accent px-8 font-display text-[15px] font-semibold text-white transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_16px_34px_-14px_var(--color-accent)]"
+              className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-accent px-8 font-body text-[15px] font-semibold text-white transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_16px_34px_-14px_var(--color-accent)]"
             >
               {t.hero.ctaWorks}
               <IconArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -54,7 +54,7 @@ export function Hero() {
             <a
               href={cvUrl ?? '#'}
               {...(cvUrl ? { download: '', target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-ink/15 px-8 font-display text-[15px] font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-ink/15 px-8 font-body text-[15px] font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent"
             >
               <IconDownload className="size-4" />
               {t.hero.ctaCv}

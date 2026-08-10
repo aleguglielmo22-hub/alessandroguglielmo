@@ -35,25 +35,25 @@ export function WorkCard({ work }: { work: Work }) {
           />
         )}
 
-        <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 font-display text-[11px] font-bold tracking-wide text-white uppercase">
+        <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 font-body text-[11px] font-bold tracking-wide text-white uppercase">
           {tr(typeLabels[work.type])}
         </span>
 
         {category && (
-          <span className="absolute top-3 right-3 rounded-full bg-ink/85 px-2.5 py-1 font-display text-[11px] font-semibold tracking-wide text-canvas backdrop-blur-sm">
+          <span className="absolute top-3 right-3 rounded-full bg-ink/85 px-2.5 py-1 font-body text-[11px] font-semibold tracking-wide text-canvas backdrop-blur-sm">
             {tr(category.label)}
           </span>
         )}
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-[1.0625rem] leading-snug font-semibold text-ink transition-colors duration-300 group-hover:text-accent">
+        <h3 className="font-display text-[1.22rem] leading-snug font-semibold text-ink transition-colors duration-300 group-hover:text-accent">
           {tr(work.title)}
         </h3>
         <p className="mt-2.5 line-clamp-3 text-[14.5px] leading-relaxed text-muted">
           {tr(work.description)}
         </p>
-        <p className="mt-5 flex items-center gap-2 border-t border-line pt-4 font-display text-[12.5px] font-medium tracking-wide text-muted">
+        <p className="mt-5 flex items-center gap-2 border-t border-line pt-4 font-body text-[12.5px] font-medium tracking-wide text-muted">
           {work.date}
           {work.link && <IconExternal className="size-3.5 text-accent" />}
         </p>

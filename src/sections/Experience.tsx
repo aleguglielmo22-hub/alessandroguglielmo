@@ -23,14 +23,14 @@ export function Experience() {
         <Reveal>
           <span className="inline-flex items-center gap-3">
             <span className="h-px w-8 bg-accent" aria-hidden="true" />
-            <span className="font-display text-[11px] font-semibold tracking-[0.22em] text-accent uppercase">
+            <span className="font-body text-[11px] font-semibold tracking-[0.22em] text-accent uppercase">
               {t.experience.label}
             </span>
           </span>
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-6 max-w-2xl font-display text-[clamp(2rem,5vw,3.25rem)] leading-[1.05] font-bold text-white">
+          <h2 className="mt-6 max-w-2xl font-display text-[clamp(2.5rem,6.2vw,4.15rem)] leading-[0.95] font-medium text-white">
             {t.experience.title}
           </h2>
         </Reveal>
@@ -42,16 +42,16 @@ export function Experience() {
                 <div className="flex items-start gap-4">
                   <LogoBadge logo={exp.logo} name={exp.organization} className="size-14" dark />
                   <div className="min-w-0">
-                    <h3 className="font-display text-[1.15rem] leading-snug font-semibold text-white">
+                    <h3 className="font-display text-[1.32rem] leading-snug font-semibold text-white">
                       {exp.organization}
                     </h3>
-                    <p className="mt-1 font-display text-[14px] font-medium text-accent">
+                    <p className="mt-1 font-body text-[14px] font-medium text-accent">
                       {tr(exp.role)}
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-5 inline-block rounded-full border border-white/12 px-3 py-1 font-display text-[12px] font-medium tracking-wide text-white/55">
+                <p className="mt-5 inline-block rounded-full border border-white/12 px-3 py-1 font-body text-[12px] font-medium tracking-wide text-white/55">
                   {tr(exp.period)}
                 </p>
 

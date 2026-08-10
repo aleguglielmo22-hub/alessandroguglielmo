@@ -24,7 +24,7 @@ export function ProfilePhoto({ alt, className = '', eager = false }: ProfilePhot
       >
         <span
           aria-hidden="true"
-          className="font-display text-[clamp(2.5rem,8vw,4rem)] font-black tracking-tight select-none"
+          className="font-display text-[clamp(3rem,9vw,4.8rem)] font-bold tracking-tight select-none"
         >
           <span className="text-accent/45">A</span>
           <span className="text-ink/20">G</span>

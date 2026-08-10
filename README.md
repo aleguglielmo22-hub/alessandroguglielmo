@@ -225,8 +225,22 @@ Colori e font sono tutti definiti in un unico punto: il blocco `@theme` in
 | `--color-night` | `#141414` | `#141414` | Sezione Esperienze (scura sempre) |
 | `--color-accent` | `#ff6b00` | `#ff6b00` | Accento |
 | `--color-accent-hover` | `#e86000` | `#e86000` | Accento in hover |
-| `--font-display` | Outfit | Outfit | Titoli |
-| `--font-body` | Figtree | Figtree | Testo |
+| `--font-display` | Big Shoulders Display | idem | Titoli e numeri grandi |
+| `--font-body` | Figtree | idem | Testo, pulsanti, etichette |
+
+### Regola tipografica
+
+Big Shoulders Display è un carattere **condensato da titolazione**: sotto i ~18px diventa
+troppo stretto e poco leggibile. Vale quindi questa regola in tutto il sito:
+
+- **`font-display`** → titoli (h1/h2/h3), numeri grandi (statistiche, numeri dei servizi),
+  logo AG. Sempre a pesi leggeri: `font-medium` (500) sui titoloni, `font-semibold` (600)
+  sui titoli di card.
+- **`font-body`** → tutto il resto: paragrafi, pulsanti, etichette di sezione, badge,
+  chip, date, tab, voci di navigazione.
+
+Se aggiungi un titolo nuovo, ricordati che essendo condensato ha bisogno di un corpo
+maggiore (~25%) rispetto a un carattere normale per avere la stessa presenza visiva.
 
 ### Tema scuro
 

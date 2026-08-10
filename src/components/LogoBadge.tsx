@@ -37,7 +37,7 @@ export function LogoBadge({ logo, name, className = 'size-12', dark = false }: L
       ) : (
         <span
           aria-hidden="true"
-          className="font-display text-[13px] font-bold tracking-tight select-none"
+          className="font-body text-[13px] font-bold tracking-tight select-none"
         >
           {initials(name)}
         </span>
