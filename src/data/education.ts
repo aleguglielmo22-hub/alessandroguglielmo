@@ -14,6 +14,20 @@ export type EducationItem = {
 /** Ordine cronologico inverso: la prima voce è la più recente. */
 export const education: EducationItem[] = [
   {
+    id: 'pfsa-level-2',
+    year: '2026',
+    title: {
+      it: 'Level 2 Talent Identification in Football',
+      en: 'Level 2 Talent Identification in Football',
+    },
+    institution: 'PFSA (Professional Football Scouts Association)',
+    description: {
+      it: "Secondo livello del percorso PFSA sull'identificazione dei talenti: metodologie di scouting, criteri di valutazione del giocatore e stesura di report professionali.",
+      en: 'The second level of the PFSA talent identification pathway: scouting methodologies, player assessment criteria and professional report writing.',
+    },
+    logo: 'pfsa.jpeg',
+  },
+  {
     id: 'san-raffaele',
     year: 'ongoing',
     title: {
