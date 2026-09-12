@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build && node scripts/spa-fallback.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist -t"
+    "deploy": "gh-pages-clean && npm run build && gh-pages -d dist -t"
   },
   "dependencies": {
     "react": "^19.2.8",
