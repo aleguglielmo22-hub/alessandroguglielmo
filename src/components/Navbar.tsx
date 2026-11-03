@@ -4,14 +4,17 @@ import { useLang } from '../i18n'
 import { SECTION } from '../lib/sections'
 import { categories } from '../data/works'
 import { cvUrl } from '../data/profile'
+import { asset } from '../lib/assets'
 import { IconChevronDown, IconClose, IconDownload, IconMenu } from './Icons'
 
 const LOGO = (
-  <span className="font-display text-[2rem] leading-none font-bold tracking-tight">
-    {/* Logo testuale segnaposto: sostituibile con un file SVG/PNG */}
-    <span className="text-accent">A</span>
-    <span className="text-ink">G</span>
-  </span>
+  <img
+    src={asset('brand/ag-simbolo.svg')}
+    alt="Alessandro Guglielmo"
+    width={74}
+    height={32}
+    className="h-8 w-auto"
+  />
 )
 
 export function Navbar() {
