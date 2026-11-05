@@ -7,10 +7,10 @@ import { cvUrl } from '../data/profile'
 import { asset } from '../lib/assets'
 import { IconChevronDown, IconClose, IconDownload, IconMenu } from './Icons'
 
-/* Tema scuro: simbolo bianco (AG-logo-scia-lunga/simbolo-bianco). Tema chiaro: simbolo scuro con barra arancione. */
+/* Tema scuro: simbolo con lettere bianche e barra arancione (AG-logo-scia-lunga/simbolo-colori-su-scuro). Tema chiaro: simbolo scuro con barra arancione. */
 const LOGO = (
   <picture>
-    <source srcSet={asset('brand/ag-simbolo-bianco.svg')} media="(prefers-color-scheme: dark)" />
+    <source srcSet={asset('brand/ag-simbolo-colori-su-scuro.svg')} media="(prefers-color-scheme: dark)" />
     <img
       src={asset('brand/ag-simbolo.svg')}
       alt="Alessandro Guglielmo"
