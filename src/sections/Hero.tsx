@@ -3,13 +3,17 @@ import { useLang } from '../i18n'
 import { cvUrl } from '../data/profile'
 import { SECTION } from '../lib/sections'
 import { IconArrowRight, IconDownload } from '../components/Icons'
-import { ProfilePhoto } from '../components/ProfilePhoto'
+import { AGLogo } from '../components/AGLogo'
+import { Backdrop } from '../components/Backdrop'
 
 export function Hero() {
   const { t } = useLang()
 
   return (
     <section id={SECTION.hero} className="relative overflow-hidden">
+      {/* Nastri animati di sfondo (da AG Studio) */}
+      <Backdrop className="opacity-50" />
+
       {/* Glow radiale arancione in alto a destra */}
       <div
         aria-hidden="true"
@@ -62,16 +66,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── Colonna foto (nascosta su mobile) ─────────────────── */}
+        {/* ── Colonna logo (nascosta su mobile) ─────────────────── */}
         <div className="relative hidden justify-self-center opacity-0 [animation:fade-in_1.1s_cubic-bezier(0.22,1,0.36,1)_0.35s_forwards] md:block">
-          {/* Quadrato arancione decorativo offset */}
-          <div
-            aria-hidden="true"
-            className="absolute -right-6 -bottom-6 size-44 rounded-[26px] bg-accent"
-          />
-          <div className="relative w-[min(380px,32vw)] overflow-hidden rounded-[28px] bg-line shadow-[0_30px_70px_-32px_rgba(20,20,20,0.45)]">
-            <ProfilePhoto alt={t.hero.photoAlt} eager className="aspect-4/5 w-full" />
-          </div>
+          <AGLogo height={150} className="max-w-[32vw]" />
         </div>
       </div>
     </section>

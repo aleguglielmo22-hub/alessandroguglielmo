@@ -9,7 +9,7 @@ type ProfilePhotoProps = {
 }
 
 /**
- * Foto profilo (`public/images/foto-profilo.jpeg`).
+ * Foto profilo (`public/images/foto-profilo.webp`).
  * Finché il file non è stato caricato mostra un segnaposto "AG" invece di un buco.
  */
 export function ProfilePhoto({ alt, className = '', eager = false }: ProfilePhotoProps) {
@@ -35,14 +35,14 @@ export function ProfilePhoto({ alt, className = '', eager = false }: ProfilePhot
 
   return (
     <img
-      src={image('foto-profilo.jpeg')}
+      src={image('foto-profilo.webp')}
       alt={alt}
-      width={520}
-      height={650}
+      width={1086}
+      height={1448}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
       onError={() => setFailed(true)}
-      className={`object-cover ${className}`}
+      className={`object-cover object-[50%_30%] ${className}`}
     />
   )
 }

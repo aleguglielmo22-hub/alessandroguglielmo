@@ -60,7 +60,7 @@ Stanno in `public/images/`. I loghi sono già tutti caricati:
 
 | File | Dove appare |
 | --- | --- |
-| ⚠️ `foto-profilo.jpeg` | Hero e sezione "Chi Sono" — **DA CARICARE** |
+| ⚠️ `foto-profilo.webp` | Hero e sezione "Chi Sono" — **DA CARICARE** |
 | `guidonia-montecelio.png` | Esperienza Guidonia Montecelio 1937 |
 | `fc-trapani-1905.png` | Esperienza FC Trapani 1905 |
 | `scout-underrated.jpg` | Esperienza Scout Underrated |
@@ -75,7 +75,7 @@ Stanno in `public/images/`. I loghi sono già tutti caricati:
 | `lf-scouting.webp` | Formazione — LF Scouting |
 | `emiscouting.png` | Formazione — Emiscouting |
 
-**Manca solo la foto profilo**: mettila in `public/images/foto-profilo.jpeg`
+**Manca solo la foto profilo**: mettila in `public/images/foto-profilo.webp`
 (consigliato: verticale, ritaglio 4:5, almeno 800×1000 px). Finché non c'è, al suo posto
 compare un segnaposto "AG" — il sito non si rompe. Stesso discorso per i loghi: se un
 file manca vengono mostrate le iniziali dell'ente.
